@@ -21,11 +21,10 @@ internal class Pkce {
                         ]
                     }
                     .fold(
-                        "",
-                        { codeVerifier, nextChar ->
-                            codeVerifier.plus(nextChar)
-                        }
-                    )
+                        ""
+                    ) { codeVerifier, nextChar ->
+                        codeVerifier.plus(nextChar)
+                    }
                     .let { CodeVerifier(it) }
             }
 

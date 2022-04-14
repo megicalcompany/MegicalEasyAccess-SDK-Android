@@ -563,12 +563,6 @@ class MegicalAuthApi {
     private fun easyAccessAppLink(loginCode: String, authEnv: String): Uri =
         Uri.parse("com.megical.easyaccess:/auth?loginCode=$loginCode&authEnv=$authEnv")
 
-
-    interface Callback<T> {
-        fun onSuccess(response: T)
-        fun onFailure(error: MegicalException)
-    }
-
     private fun EasyAccessApi.MetadataResponse.toMetadata(): Metadata {
         return Metadata(
             defaultLang = this.defaultLang,
