@@ -46,3 +46,7 @@ enum class LoginState(val value: String) {
     Unknown("unknown")
 }
 
+data class SigningData(
+    val signatureCode: String,
+    val appLink: Uri,
+)

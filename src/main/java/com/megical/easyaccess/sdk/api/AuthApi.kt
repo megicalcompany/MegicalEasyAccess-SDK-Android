@@ -48,7 +48,7 @@ internal interface AuthApi {
         @Url verifyUrl: String,
         @Body verifyRequest: VerifyRequest,
     ): Call<String>
-
+    
     @FormUrlEncoded
     @POST
     fun tokenRequest(
@@ -64,28 +64,28 @@ internal interface AuthApi {
 
     @JsonClass(generateAdapter = true)
     data class AuthorizeResponse(
-        val loginCode: String,
-        val sessionId: UUID,
-        val lang: String?,
+        @Json(name = "loginCode") val loginCode: String,
+        @Json(name = "sessionId") val sessionId: UUID,
+        @Json(name = "lang") val lang: String?,
     )
 
     @JsonClass(generateAdapter = true)
     data class ClientRequest(
-        val clientToken: UUID,
-        val deviceId: String,
-        val key: JsonWebKey,
+        @Json(name = "clientToken") val clientToken: UUID,
+        @Json(name = "deviceId") val deviceId: String,
+        @Json(name = "key") val key: JsonWebKey,
     )
 
     @JsonClass(generateAdapter = true)
     data class ClientResponse(
-        val clientId: String,
-        val secret: String,
+        @Json(name = "clientId") val clientId: String,
+        @Json(name = "secret") val secret: String,
     )
 
     @JsonClass(generateAdapter = true)
     data class VerifyRequest(
-        val sessionId: UUID,
-        val redirect: Boolean = false,
+        @Json(name = "sessionId") val sessionId: UUID,
+        @Json(name = "redirect") val redirect: Boolean = false,
     )
 
     @JsonClass(generateAdapter = true)
@@ -99,7 +99,7 @@ internal interface AuthApi {
 
     @JsonClass(generateAdapter = true)
     data class JsonWebKeySet(
-        val keys: List<JsonWebKey>,
+        @Json(name = "keys") val keys: List<JsonWebKey>,
     )
 
     @JsonClass(generateAdapter = true)
